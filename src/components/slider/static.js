@@ -48,6 +48,7 @@ export const slides = [
     progressBarColor: "primary",
     backgroundLayer:
       "linear-gradient(180deg, rgba(58,126,233,0) 0%, rgba(13,134,157,1) 100%)",
+      url:`https://tasty.co/recipe/pizza-dough`
   },
 
   {
@@ -57,8 +58,8 @@ export const slides = [
     width: "100px",
     logoColor: AmazonColor,
     progressBarColor: "yellow",
-    backgroundLayer:
-      "linear-gradient(180deg, rgba(233,172,58,0.23573179271708689) 0%, rgba(157,107,13,1) 100%)",
+    backgroundLayer:"linear-gradient(180deg, rgba(233,172,58,0.23573179271708689) 0%, rgba(157,107,13,1) 100%)",
+      url:`https://stripe.com/customers/amazon`
   },
   {
     image: Slide2,
@@ -70,6 +71,7 @@ export const slides = [
     progressBarColor: "primary",
     backgroundLayer:
       "linear-gradient(180deg, rgba(58,126,233,0) 0%, rgba(13,134,157,1) 100%)",
+      url:`https://stripe.com/newsroom/stories/maersk-and-stripe`
   },
   {
     image: Slide3,
@@ -80,5 +82,6 @@ export const slides = [
     progressBarColor: "red",
     backgroundLayer:
       "linear-gradient(180deg, rgba(233,58,58,0.10407913165266103) 0%, rgba(157,13,13,1) 100%)",
+      url:`https://stripe.com/customers/twilio`
   },
 ];

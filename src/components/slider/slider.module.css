@@ -103,3 +103,34 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+@media only screen and (max-width: 900px) {
+  .brandGrid {
+    display: grid;
+    grid-template-columns: 50% 50% ;
+    grid-row-gap: 30px;
+    margin-top: 80px;
+  }
+
+  .lowerText {
+    font-size: 18px;
+
+  }
+
+  .story {
+ 
+    left: -42%;
+
+  }
+  
+  .image {
+    object-fit: cover;
+  }
+
+  .main {
+    width: 95%;
+  }
+
+
+}

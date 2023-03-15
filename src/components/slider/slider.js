@@ -1,44 +1,26 @@
 import styles from "./slider.module.css";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Slide1 from "../../content/png/slide1.png";
-import Slide2 from "../../content/png/slide2.png";
-import Slide3 from "../../content/png/slide3.png";
-import Slide4 from "../../content/png/slide4.jpg";
-import Amazon from "../../content/png/amazon.png";
-import Maersk from "../../content/png/maersk.png";
-import Twillio from "../../content/png/twillio.png";
-import Domino from "../../content/png/domino.png";
 import Menu from "../../content/png/menu.png";
-import LinearProgress, {
-  LinearProgressProps,
-} from "@mui/material/LinearProgress";
-import AmazonColor from "../../content/brands/amazon.svg";
-import MaerskColor from "../../content/brands/maersk.svg";
-import TwilioColor from "../../content/brands/twilio.svg";
-import DominosColor from "../../content/brands/dominos.svg";
+import LinearProgress from "@mui/material/LinearProgress";
 import { motion } from "framer-motion";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import ArrowRight from "../../content/png/arrowRight.png";
-import {slides,theme} from "./static.js"
-
-
-const SLIDE_DURATION = 5000; 
+import { slides, theme } from "./static.js";
+import Link from "next/link";
+const SLIDE_DURATION = 5000;
 const PROGRESS_BAR_INTERVAL = 50;
 
 function Slider() {
   const [progress, setProgress] = useState(0);
   const [catchLength, setCatchLengths] = useState([]);
-
- 
-
-
   const [currentSlide, setCurrentSlide] = useState(0);
+
   useEffect(() => {
     const slideTimer = setInterval(() => {
       setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
       setCatchLengths([...catchLength, currentSlide]);
-      setProgress(0); 
+      setProgress(0);
     }, SLIDE_DURATION);
 
     const progressBarTimer = setInterval(() => {
@@ -69,10 +51,21 @@ function Slider() {
     setCatchLengths([...catchLength, index]);
   };
 
+  const url ="https://tasty.co/recipe/pizza-dough"
+  
+
   return (
     <ThemeProvider theme={theme}>
+
       <div className={styles.main}>
+
+
+    <Link style={{
+  textDecoration:"none"
+}} href={slides[currentSlide].url}>
+      
         <div className={styles.mainContainer}>
+    
           <div className={styles.container}>
             <div
               style={{
@@ -80,11 +73,20 @@ function Slider() {
               }}
               className={styles.gradientOverlay}
             ></div>
+            {/* <Link
+     
+            href={url}
+            style={{
+              position:"relative",
+              zIndex:"3"
+            }}
+            > */}
             <Image
               className={styles.image}
               alt="slider"
               src={slides[currentSlide].image}
             />
+            {/* </Link> */}
             <motion.div
               className={styles.imageContentContainer}
               initial="enter"
@@ -124,6 +126,7 @@ function Slider() {
             </motion.div>
           </div>
         </div>
+        </Link>
 
         <div className={styles.brandGrid}>
           {slides.map((slide, index) => (
@@ -154,6 +157,7 @@ function Slider() {
             </div>
           ))}
         </div>
+
       </div>
     </ThemeProvider>
   );
